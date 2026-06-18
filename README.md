@@ -151,7 +151,7 @@ AutoReport/
 ### Clone Repository
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/ashu2506-py/AutoReport
 cd AutoReport
 ```
 
