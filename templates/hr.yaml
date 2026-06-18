@@ -1,2 +1,14 @@
 name: HR Report
-type: hr
+
+data_source: sample_data/sales.db
+
+report_title: HR Analytics Report
+
+chart:
+  type: bar
+  column: Sales
+  group_by: Category
+
+output:
+  pdf: true
+  html: true

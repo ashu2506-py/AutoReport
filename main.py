@@ -12,10 +12,10 @@ from pathlib import Path
 app = typer.Typer()
 
 
-def run_report_pipeline():
+def run_report_pipeline(template_name):
 
     config = ConfigLoader.load_config(
-    "templates/sales.yaml"
+    f"templates/{template_name}.yaml"
     )
 
     print("\nLoaded Config:")
@@ -61,11 +61,11 @@ def run_report_pipeline():
 
 
 @app.command()
-def generate():
+def generate(template: str = typer.Argument(...)):
     """
     Generate reports
     """
-    run_report_pipeline()
+    run_report_pipeline(template)
 
 
 @app.command()
