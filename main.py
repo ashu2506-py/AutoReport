@@ -7,6 +7,8 @@ from reports.pdf_generator import PDFGenerator
 from reports.html_generator import HTMLGenerator
 from config.config_loader import ConfigLoader
 
+from scheduler.report_scheduler import ReportScheduler
+
 from pathlib import Path
 
 app = typer.Typer()
@@ -90,6 +92,14 @@ def list_templates():
     for file in template_dir.glob("*.yaml"):
         print(f"- {file.stem}")
 
+@app.command()
+def schedule():
+
+    scheduler = ReportScheduler()
+
+    scheduler.start(
+        lambda: run_report_pipeline("sales")
+    )
 
 if __name__ == "__main__":
     app()
