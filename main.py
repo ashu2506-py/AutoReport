@@ -101,5 +101,16 @@ def schedule():
         lambda: run_report_pipeline("sales")
     )
 
+@app.command()
+def test_api():
+
+    url = "https://jsonplaceholder.typicode.com/users"
+
+    reader = ReaderFactory.get_reader(url)
+
+    df = reader.load_data(url)
+
+    print(df.head())
+
 if __name__ == "__main__":
     app()
