@@ -32,14 +32,3 @@ pdf.generate_report(
     summary,
     "sales_by_category.png"
 )
-
-from data_sources.excel_reader import ExcelReader
-
-
-reader = ExcelReader()
-
-df = reader.load_data(
-    "sample_data/sales.xlsx"
-)
-
-print(df.head())
