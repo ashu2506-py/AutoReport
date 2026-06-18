@@ -25,5 +25,23 @@ class StatisticsAnalyzer:
     )
 
         return result
+    
+    def generate_insights(self, df):
+
+        total_sales = df["Sales"].sum()
+
+        avg_sales = df["Sales"].mean()
+
+        top_category = (
+            df.groupby("Category")["Sales"]
+            .sum()
+            .idxmax()
+        )
+
+        return {
+            "total_sales": int(total_sales),
+            "average_sales": float(avg_sales),
+            "top_category": top_category
+        }
 
         
