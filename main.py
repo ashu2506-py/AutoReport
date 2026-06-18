@@ -5,6 +5,7 @@ from analysis.statistics import StatisticsAnalyzer
 from charts.chart_generator import ChartGenerator
 from reports.pdf_generator import PDFGenerator
 from reports.html_generator import HTMLGenerator
+from config.config_loader import ConfigLoader
 
 from pathlib import Path
 
@@ -13,7 +14,14 @@ app = typer.Typer()
 
 def run_report_pipeline():
 
-    file_path = "sample_data/sales.db"
+    config = ConfigLoader.load_config(
+    "templates/sales.yaml"
+    )
+
+    print("\nLoaded Config:")
+    print(config)
+
+    file_path = config["data_source"]
 
     reader = ReaderFactory.get_reader(file_path)
 
