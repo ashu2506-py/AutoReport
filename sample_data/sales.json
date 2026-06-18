@@ -1,0 +1,20 @@
+[
+  {
+    "Date": "2025-01-01",
+    "Product": "Laptop",
+    "Category": "Electronics",
+    "Sales": 50000
+  },
+  {
+    "Date": "2025-01-02",
+    "Product": "Phone",
+    "Category": "Electronics",
+    "Sales": 30000
+  },
+  {
+    "Date": "2025-01-03",
+    "Product": "Shirt",
+    "Category": "Fashion",
+    "Sales": 2000
+  }
+]

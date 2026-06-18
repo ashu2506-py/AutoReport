@@ -33,13 +33,33 @@ pdf.generate_report(
     "sales_by_category.png"
 )
 
-from data_sources.excel_reader import ExcelReader
+from data_sources.reader_factory import ReaderFactory
 
 
-reader = ExcelReader()
+file_path = "sample_data/sales.db"
 
-df = reader.load_data(
-    "sample_data/sales.xlsx"
+reader = ReaderFactory.get_reader(
+    file_path   
 )
 
+df = reader.load_data(file_path)
+
 print(df.head())
+
+# import sqlite3
+# import pandas as pd
+
+# df = pd.read_csv("sample_data/sales.csv")
+
+# conn = sqlite3.connect("sample_data/sales.db")
+
+# df.to_sql(
+#     "sales",
+#     conn,
+#     if_exists="replace",
+#     index=False
+# )
+
+# conn.close()
+
+# print("Database created!")  
