@@ -30,3 +30,12 @@ pdf.generate_report(
     insights,
     "sales_by_category.png"
 )
+
+from reports.html_generator import HTMLGenerator
+
+html = HTMLGenerator()
+
+html.generate_report(
+    insights,
+    "sales_by_category.png"
+)
